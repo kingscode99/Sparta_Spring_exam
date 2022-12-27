@@ -50,13 +50,14 @@ public class MemoService {
         return memo;
     }
 
-    public Memo deleteMemo(Long id, MemoRequestDto requestDto) {
+    public Boolean deleteMemo(Long id, MemoRequestDto requestDto) {
         Memo memo = memoRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("아이디가 존제하지 않습니다.")
         );
         if(requestDto.getPw().equals(memo.getPw())){
             memoRepository.deleteById(id);
+            return true;
         }
-        return memo;
+        return false;
     }
 }

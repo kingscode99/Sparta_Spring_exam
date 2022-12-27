@@ -43,7 +43,7 @@ public class MemoController {
 
     //메모 삭제하기
     @DeleteMapping("/api/memos/{id}")
-    public Memo deleteMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto){
+    public Boolean deleteMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto){
         return memoService.deleteMemo(id, requestDto);
     }
 }
