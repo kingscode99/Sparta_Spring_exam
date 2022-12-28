@@ -19,10 +19,10 @@ public class MemoService {
     private final MemoRepository memoRepository;
 
     @Transactional
-    public Boolean createMemo(MemoRequestDto requestDto) {
+    public String createMemo(MemoRequestDto requestDto) {
         Memo memo = new Memo(requestDto);
         memoRepository.save(memo);
-        return true;
+        return "저장 완료";
     }
 
     public List<IgnorePwDto> getMemos() {
@@ -58,14 +58,14 @@ public class MemoService {
     }
 
     @Transactional
-    public Boolean deleteMemo(Long id, MemoRequestDto requestDto) {
+    public String deleteMemo(Long id, MemoRequestDto requestDto) {
         Memo memo = memoRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("아이디가 존제하지 않습니다.")
         );
         if(requestDto.getPw().equals(memo.getPw())){
             memoRepository.deleteById(id);
-            return true;
+            return "삭제가 완료 되었습니다.";
         }
-        return false;
+        return "비밀번호가 일치하지 않습니다.";
     }
 }

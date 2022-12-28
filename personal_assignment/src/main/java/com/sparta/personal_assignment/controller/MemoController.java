@@ -18,7 +18,7 @@ public class MemoController {
 
     //메모 테이블 만들기
     @PostMapping("/api/memos")
-    public Boolean createMemo(@RequestBody MemoRequestDto requestDto){
+    public String createMemo(@RequestBody MemoRequestDto requestDto){
         return memoService.createMemo(requestDto);
     }
 
@@ -44,7 +44,7 @@ public class MemoController {
 
     //메모 삭제하기
     @DeleteMapping("/api/memos/{id}")
-    public Boolean deleteMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto){
+    public String deleteMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto){
         return memoService.deleteMemo(id, requestDto);
     }
 }
