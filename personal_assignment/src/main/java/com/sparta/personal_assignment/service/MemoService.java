@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -27,12 +28,7 @@ public class MemoService {
 
     public List<IgnorePwDto> getMemos() {
         List<Memo> memos = memoRepository.findAllByOrderByModifiedAtDesc();
-        List<IgnorePwDto> ignorePwDtos = new ArrayList<>();
-        for(Memo i: memos){
-            IgnorePwDto ignorePwDto = new IgnorePwDto(i);
-            ignorePwDtos.add(ignorePwDto);
-        }
-        return ignorePwDtos;
+        return memos.stream().map(IgnorePwDto::new).collect(Collectors.toList());
     }
 
     @Transactional
@@ -42,19 +38,15 @@ public class MemoService {
         );
         if(requestDto.getPw().equals(memo.getPw())){
             memo.update(requestDto);
-            IgnorePwDto ignorePwDto = new IgnorePwDto(memo);
-            return ignorePwDto;
         }
-        IgnorePwDto ignorePwDto = new IgnorePwDto(memo);
-        return ignorePwDto;
+        return new IgnorePwDto(memo);
     }
 
     public IgnorePwDto findMemos(Long id) {
         Memo memo = memoRepository.findById(id).orElseThrow(
                 () ->new IllegalArgumentException("아이디가 존제하지 않습니다.")
         );
-        IgnorePwDto ignorePwDto = new IgnorePwDto(memo);
-        return ignorePwDto;
+        return new IgnorePwDto(memo);
     }
 
     @Transactional

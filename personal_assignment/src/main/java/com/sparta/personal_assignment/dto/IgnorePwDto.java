@@ -10,9 +10,9 @@ public class IgnorePwDto {
     private final String nickname;
     private final String title;
     private final String comment;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
-    private Long id;
+    private final LocalDateTime createdAt;
+    private final LocalDateTime modifiedAt;
+    private final Long id;
 
     public IgnorePwDto(Memo memo) {
         this.nickname = memo.getNickname();
