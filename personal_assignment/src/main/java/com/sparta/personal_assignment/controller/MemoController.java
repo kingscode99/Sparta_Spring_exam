@@ -15,6 +15,7 @@ public class MemoController {
     //service 객체 생성
     private final MemoService memoService;
 
+
     //메모 테이블 만들기
     @PostMapping("/api/memos")
     public Memo createMemo(@RequestBody MemoRequestDto requestDto){
@@ -23,7 +24,7 @@ public class MemoController {
 
     //메모 보여주기
     @GetMapping("/api/memos")
-    public List<Memo> getMemos() {
+    public List<IgnorePwDto> getMemos() {
         return memoService.getMemos();
     }
 
@@ -37,7 +38,7 @@ public class MemoController {
 
     //메모 조회하기
     @GetMapping("/api/memos/find/{id}")
-    public Memo findMemos(@PathVariable Long id){
+    public IgnorePwDto findMemos(@PathVariable Long id){
         return memoService.findMemos(id);
     }
 
