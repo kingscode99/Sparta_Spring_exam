@@ -37,7 +37,7 @@ public class MemoController {
     }
 
     //메모 조회하기
-    @GetMapping("/api/memos/find/{id}")
+    @GetMapping("/api/memos/{id}")
     public IgnorePwDto findMemos(@PathVariable Long id){
         return memoService.findMemos(id);
     }
