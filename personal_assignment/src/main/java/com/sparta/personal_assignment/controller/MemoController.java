@@ -18,7 +18,7 @@ public class MemoController {
 
     //메모 테이블 만들기
     @PostMapping("/api/memos")
-    public String createMemo(@RequestBody MemoRequestDto requestDto){
+    public Memo createMemo(@RequestBody MemoRequestDto requestDto){
         return memoService.createMemo(requestDto);
     }
 
