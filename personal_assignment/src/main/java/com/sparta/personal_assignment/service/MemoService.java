@@ -50,6 +50,7 @@ public class MemoService {
         return memo;
     }
 
+    @Transactional
     public Boolean deleteMemo(Long id, MemoRequestDto requestDto) {
         Memo memo = memoRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("아이디가 존제하지 않습니다.")
