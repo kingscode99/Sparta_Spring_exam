@@ -19,10 +19,10 @@ public class MemoService {
     private final MemoRepository memoRepository;
 
     @Transactional
-    public Memo createMemo(MemoRequestDto requestDto) {
+    public Boolean createMemo(MemoRequestDto requestDto) {
         Memo memo = new Memo(requestDto);
         memoRepository.save(memo);
-        return memo;
+        return true;
     }
 
     public List<IgnorePwDto> getMemos() {
