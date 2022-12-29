@@ -1,4 +1,5 @@
 # Sparta_Spring_exam
+개인과제는 personal_assignment 디렉토리에 있습니다!
 ![image](https://user-images.githubusercontent.com/118798407/209825771-6f86ff7f-5b06-4a8c-aa64-d6e250e4c561.png)
 | Method | URL | Request | Response |
 | --- | --- | --- | --- |
