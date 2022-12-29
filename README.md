@@ -1,6 +1,6 @@
 # Sparta_Spring_exam
 개인과제는 personal_assignment 디렉토리에 있습니다!
-![image](https://user-images.githubusercontent.com/118798407/209950175-6f35cdfe-272a-4367-bb3d-4a7d5b3725e3.png)
+![image](https://user-images.githubusercontent.com/118798407/209950210-1a20ff97-b0d6-4cf8-88af-e14cd09f9a95.png)
 | Method | URL | Request | Response |
 | --- | --- | --- | --- |
 | POST | /api/memos | {"nickname":"딸기","pw":"123a", "title":"과일 가게", "comment": "나는 사실 감자입니다."} | {"createdAt": "2022-12-28T22:21:28.4737323","modifiedAt": "2022-12-28T22:21:28.4737323","id": 1,"nickname": "딸기","title": "과일 가게","comment": "나는 사실 감자입니다.","pw": "123a"} |
