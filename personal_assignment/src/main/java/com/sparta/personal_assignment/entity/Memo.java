@@ -15,21 +15,19 @@ public class Memo extends Timestamped {
     private Long id;
 
     @Column(nullable = false)
-    private String nickname;
     private String title;
     private String comment;
-    private String pw;
 
+    @Column(nullable = false)
+    private Long userId;
 
-    public Memo(MemoRequestDto requestDto) {
-        this.nickname = requestDto.getNickname();
+    public Memo(MemoRequestDto requestDto, Long userId) {
         this.title = requestDto.getTitle();
         this.comment = requestDto.getComment();
-        this.pw = requestDto.getPw();
+        this.userId = userId;
     }
 
     public void update(MemoRequestDto requestDto) {
-        this.nickname = requestDto.getNickname();
         this.title = requestDto.getTitle();
         this.comment = requestDto.getComment();
     }
