@@ -1,10 +1,12 @@
 package com.sparta.personal_assignment.controller;
 
-import com.sparta.personal_assignment.dto.UserRequsetDto;
+import com.sparta.personal_assignment.dto.LoginRequestDto;
+import com.sparta.personal_assignment.dto.SignupRequsetDto;
 import com.sparta.personal_assignment.service.UserService;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequiredArgsConstructor
@@ -13,14 +15,14 @@ public class UserController {
     private final UserService userService;
 
     //회원가입
-    @PostMapping("/api/signup")
-    public String createUsers(@RequestBody UserRequsetDto requsetDto){
-        return userService.createUser(requsetDto);
+    @PostMapping("/api/users/signup")
+    public String signup(@RequestBody SignupRequsetDto signupRequsetDto){
+        return userService.signup(signupRequsetDto);
     }
 
     @ResponseBody
-    @PostMapping("/api/signin")
-    public String signing(@RequestBody UserRequsetDto requsetDto, HttpServletResponse response){
-        return userService.signin(requsetDto, response);
+    @PostMapping("/api/users/login")
+    public String login(@RequestBody LoginRequestDto loginRequestDto, HttpServletResponse response){
+        return userService.login(loginRequestDto, response);
     }
 }

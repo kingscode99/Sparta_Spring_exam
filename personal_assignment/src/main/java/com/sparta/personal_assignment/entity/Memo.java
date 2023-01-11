@@ -1,7 +1,7 @@
 package com.sparta.personal_assignment.entity;
 
 import com.sparta.personal_assignment.dto.MemoRequestDto;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

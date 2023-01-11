@@ -1,12 +1,9 @@
 package com.sparta.personal_assignment.entity;
 
-import com.sparta.personal_assignment.dto.UserRequsetDto;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Entity(name = "users")
@@ -20,9 +17,13 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    @Enumerated(value = EnumType.STRING)
+    private UserRoleEnum role;
 
-    public User(UserRequsetDto requsetDto) {
-        this.username = requsetDto.getUsername();
-        this.password = requsetDto.getPassword();
+    public User(String username, String password, UserRoleEnum role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
     }
 }
